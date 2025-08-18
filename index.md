@@ -13,14 +13,14 @@ permalink: /
 <!-- Profile Section -->
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; justify-content: center; margin-top: 2rem;">
   <div style="flex: 0 0 auto;">
-    <img src="/assets/images/profile.jpg" alt="Divyaansh Seth" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
+    <img src="/assets/images/profile2.jpg" alt="Divyaansh Seth" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
   </div>
   <div style="max-width: 600px;">
     <h2 style="margin-bottom: 0.5rem;">Hello! 👋</h2>
     <p style="font-size: 1.05rem; line-height: 1.6;">
       I’m <strong>Divyaansh Seth</strong>, an aspiring technologist with a deep interest in AI, data science, and full-stack systems. I’m currently a junior at UMass Amherst, double majoring in Computer Science and Mathematics, with a minor in Business. I enjoy building impactful software projects, exploring algorithmic finance, and contributing to research at the intersection of AI and public policy.
     </p>
-    <a href="/assets/docs/Divyaansh_Resume.pdf" download style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1rem; background: #007acc; color: white; text-decoration: none; border-radius: 6px; font-weight: 500;">📄 Download Resume</a>
+    <a href="/assets/docs/Resume2.pdf" download style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1rem; background: #007acc; color: white; text-decoration: none; border-radius: 6px; font-weight: 500;">📄 Download Resume</a>
   </div>
 </div>
 

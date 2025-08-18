@@ -80,6 +80,15 @@ excerpt: "Showcasing hands-on experience in algorithmic trading, generative AI, 
   </div>
 </div>
 
+<div class="project-card" onclick="toggleDetails('expressify')">
+  <div class="project-title">🚀 Expressify – Co-founder & NLP Developer</div>
+  <div class="project-tech">Python(Django) · spaCy · TensorFlow · JavaScript</div>
+  <div id="expressify" class="project-details">
+    Built an AI-powered web platform with real-time pronunciation and grammar feedback for non-native English speakers. Developed core backend APIs with Flask and deployed to AWS using Docker. Ranked Top 28 globally in the Young Tycoons Business Challenge and won a Govt. of India organized Hackathon.
+  </div>
+</div>
+
+
 <p style="text-align:center; margin-top:2rem;">
   ✨ Click on a project to expand details and explore more on <a href="https://github.com/DivSeth" target="_blank">GitHub</a>
 </p>
