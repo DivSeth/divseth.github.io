@@ -20,7 +20,7 @@ permalink: /
     <p style="font-size: 1.05rem; line-height: 1.6;">
       I’m <strong>Divyaansh Seth</strong>, an aspiring technologist with a deep interest in AI, data science, and full-stack systems. I’m currently a junior at UMass Amherst, double majoring in Computer Science and Mathematics, with a minor in Business. I enjoy building impactful software projects, exploring algorithmic finance, and contributing to research at the intersection of AI and public policy.
     </p>
-    <a href="/assets/docs/Resume2.pdf" download style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1rem; background: #007acc; color: white; text-decoration: none; border-radius: 6px; font-weight: 500;">📄 Download Resume</a>
+    <a href="assets/docs/Resume Final Aug 2025.pdf" download style="display: inline-block; margin-top: 1rem; padding: 0.6rem 1rem; background: #007acc; color: white; text-decoration: none; border-radius: 6px; font-weight: 500;">📄 Download Resume</a>
   </div>
 </div>
 
