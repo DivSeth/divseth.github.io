@@ -1,9 +1,0 @@
-main:
-  - title: Home
-    url: /
-  - title: Work
-    url: /work/
-  - title: Projects
-    url: /projects/
-  - title: Roadmap
-    url: /roadmap/
