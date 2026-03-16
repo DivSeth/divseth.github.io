@@ -8,38 +8,31 @@ export type WorkItem = {
 
 export const work: WorkItem[] = [
   {
-    id: "nic",
-    title: "National Informatics Centre (NIC) – AI Intern",
-    meta: "June 2025 – Present · Government of India",
-    description:
-      "Supporting the transition of India's VANI virtual assistant from Dialogflow to a national-scale RAG pipeline. Built ingestion and inference modules to process multi-lingual, multimodal data across 150+ schemes. Developed vector search and LLM interfaces for fast, hallucination-resistant responses. Deployed on DGX A100 with sub-200ms latency; improved precision from 65% → 85%.",
-  },
-  {
     id: "deloitte",
     title: "Deloitte India – Artificial Intelligence Intern",
-    meta: "July 2025 – Present · Healthcare Analytics",
+    meta: "July 2025 – August 2025 · Healthcare Analytics",
     description:
-      "Engineered a RAG pipeline for 2,000+ embryo images, assigning Gardner scale ratings with 84% accuracy. Integrated RAG outputs with ensemble models (XGBoost, Random Forest, Linear Regression) to forecast IVF success using 30+ clinical features. Optimized inference to sub-2s/query, improved calibration across age groups by 18%, and validated interpretability with clinicians.",
+      "Developing a RAG-driven decision support system for IVF clinics using 2,000+ embryo images. Assigns Gardner scale ratings with 84% accuracy and feeds features into ensemble models (XGBoost, Random Forest, Linear Regression) to forecast IVF success from 30+ clinical variables. Optimized inference to under 2 seconds per query and improved calibration across age groups by 18%, with findings validated alongside clinicians.",
+  },
+  {
+    id: "nic",
+    title: "National Informatics Centre (NIC) – AI Intern",
+    meta: "June 2025 – July 2025 · Government of India",
+    description:
+      "Modernizing India's VANI virtual assistant by migrating from Dialogflow to a national-scale RAG pipeline. Built ingestion and inference modules for multilingual, multimodal data across 150+ welfare schemes. Designed vector search and LLM interfaces that deliver sub-200ms responses on DGX A100 while reducing hallucinations; improved response precision from 65% to 85%.",
   },
   {
     id: "gt",
     title: "Grant Thornton – Data Analytics Intern",
     meta: "June 2024 – Aug 2024 · Public Policy Consulting",
     description:
-      "Forecasted India's MPI through 2047 using ARIMA, CAGR, and optimization techniques. Designed Scheme Performance Index to guide budget shifts and policy prioritization. Delivered strategy insights to senior GT leaders with high-impact modeling charts.",
+      "Modeled India’s Multidimensional Poverty Index (MPI) trajectory through 2047 using ARIMA, CAGR, and optimization techniques. Designed a Scheme Performance Index to identify high‑impact programs and inform budget reallocation. Presented scenario analyses and strategy recommendations to senior leadership using clear, decision-focused visualizations.",
   },
   {
     id: "build",
     title: "BUILD UMass – Product Manager",
     meta: "Sep 2023 – May 2024 · Technical Consulting for Nonprofits",
     description:
-      "Led an 8-member team in designing and launching a fundraising platform for the Amherst Education Foundation. Managed sprints, created Figma wireframes. Drove campaign features that raised $25,000+ for public schools in Western MA.",
-  },
-  {
-    id: "ashoka",
-    title: "Ashoka University – Data Science Intern",
-    meta: "Oct 2022 – Apr 2023 · BharatSim Research",
-    description:
-      "Assisted in simulating realistic population behavior using real census inputs and randomized mobility parameters. Validated models against benchmark historical data and refined correlation weights between age, income, and migration patterns.",
+      "Led an 8‑person product team building a fundraising platform for the Amherst Education Foundation. Ran agile sprints, defined requirements with stakeholders, and translated them into Figma wireframes and developer tickets. Shipped campaign features that helped raise over $25,000 for public schools across Western Massachusetts.",
   },
 ];
