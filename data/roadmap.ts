@@ -6,39 +6,39 @@ export type RoadmapItem = {
 
 export const roadmap: RoadmapItem[] = [
   {
-    id: "dsa",
-    title: "Algorithms & DSA",
+    id: "systems",
+    title: "Start With The Shape",
     description:
-      "Mastering Leetcode patterns, competitive programming, and TypeScript fundamentals.",
+      "Before polishing anything, I try to understand the data, state, failure modes, and what the user is actually waiting on.",
   },
   {
-    id: "backend",
-    title: "Backend Systems",
+    id: "measure",
+    title: "Measure Before Tuning",
     description:
-      "Building RESTful apps with Node.js, Redis, PostgreSQL, and message queues like Kafka.",
+      "Logs, traces, benchmarks, and small checks usually tell a clearer story than a guess from the happy path.",
   },
   {
-    id: "devops",
-    title: "DevOps & Deployment",
+    id: "automation",
+    title: "Reuse The Boring Parts",
     description:
-      "Learning Docker, Kubernetes, GitHub Actions, and deploying microservices to GCP.",
+      "If the same workflow shows up twice, I look for the smaller tool or interface that can make the next version easier.",
   },
   {
-    id: "aiml",
-    title: "AI/ML Engineering",
+    id: "performance",
+    title: "Keep The Fast Path Honest",
     description:
-      "Working with LangChain, FAISS, Milvus, fine-tuned LLMs, and scalable RAG systems.",
+      "Speed matters most when the measurement is honest about scope: engine time, queue time, model time, or end-to-end time.",
   },
   {
-    id: "frontend",
-    title: "Frontend & UX",
+    id: "visuals",
+    title: "Show The System",
     description:
-      "Refining React, Tailwind, Figma and motion design with Framer Motion for interactive UIs.",
+      "When a diagram, chart, or interaction explains the work faster than a paragraph, I would rather show it.",
   },
   {
-    id: "vision",
-    title: "Long-Term Vision",
+    id: "direction",
+    title: "Leave Room To Improve",
     description:
-      "Ship polished projects, publish technical blogs, and land a high-impact SWE/ML internship by 2026.",
+      "I like shipping the useful version, then tightening reliability, interfaces, tests, and the parts that make it feel clean.",
   },
 ];

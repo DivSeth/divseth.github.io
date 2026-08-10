@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { work } from "@/data/work";
+import { WorkVisual } from "@/components/visuals/WorkVisuals";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,56 +37,91 @@ export default function WorkSection() {
     <section
       ref={sectionRef}
       id="work"
-      className="min-h-screen px-6 py-24 max-w-4xl mx-auto"
+      className="section-shell min-h-screen"
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-        Work Experience
-      </h2>
-      <p className="text-gray-400 mb-12">
-        Internships, research, and leadership — click any card to expand.
-      </p>
+      <div className="mb-14 grid gap-6 md:grid-cols-12">
+        <div className="md:col-span-7">
+          <p className="section-kicker mb-4">Experience / 02</p>
+          <h2 className="section-title">Work Experience</h2>
+        </div>
+        <p className="section-copy md:col-span-5 md:pt-12">
+          Production software, AI systems, retrieval pipelines, and secondary
+          work kept compact. Select a row for the visual story.
+        </p>
+      </div>
 
-      {work.map((item) => (
+      <div className="border-b border-[var(--line)]">
+      {work.map((item, index) => (
         <div
           key={item.id}
-          className="work-card mb-4 rounded-2xl border border-white/10 bg-white/5 overflow-hidden cursor-pointer hover:border-[#007acc]/40 transition-colors duration-200"
+          className="work-card group cursor-pointer border-t border-[var(--line)] bg-[rgba(42,42,41,0.45)] transition-colors duration-200 hover:bg-[var(--surface-high)]"
           onClick={() => toggle(item.id)}
         >
-          <div className="p-6 flex items-start justify-between gap-4">
+          <div className="grid gap-4 p-5 md:grid-cols-[4rem_1fr_3rem] md:p-6">
+            <span className="mono text-xs text-[var(--dim)]">
+              {String(index + 1).padStart(2, "0")}
+            </span>
             <div className="flex-1">
-              <div className="text-lg font-semibold text-white">
-                {item.title}
+              <div className="text-xl font-semibold text-[var(--text)]">
+                {item.company}
               </div>
-              <div className="text-sm text-[#007acc] mt-1">{item.meta}</div>
+              <div className="mono mt-2 text-xs uppercase text-[var(--accent)]">
+                {item.role} · {item.meta}
+              </div>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--muted)]">
+                {item.summary}
+              </p>
             </div>
-            <span
-              className={`text-gray-400 text-xl mt-1 transition-transform duration-300 flex-shrink-0 ${
-                expanded === item.id ? "rotate-45" : ""
-              }`}
-            >
-              +
+            <span className="mono inline-grid h-9 w-9 place-items-center justify-self-start border border-[var(--line)] bg-[var(--surface-lowest)] text-sm text-[var(--muted)] transition-colors duration-200 group-hover:border-[var(--accent)] md:justify-self-end">
+              {expanded === item.id ? "-" : "+"}
             </span>
           </div>
 
           <div
             className={`overflow-hidden transition-all duration-500 ease-in-out ${
-              expanded === item.id ? "max-h-96" : "max-h-0"
+              expanded === item.id ? "max-h-[1100px]" : "max-h-0"
             }`}
           >
-            <div className="px-6 pb-6 text-gray-300 text-sm leading-relaxed border-t border-white/10 pt-4">
-              {item.description}
+            <div className="border-t border-[var(--line)] px-5 pb-6 pt-5 text-sm leading-relaxed text-[var(--muted)] md:ml-24 md:px-6">
+              <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+                <div>
+                  <p>{item.description}</p>
+                  {item.metrics && (
+                    <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                      {item.metrics.map((metric) => (
+                        <div key={metric.label} className="border border-[var(--line)] bg-[var(--surface-lowest)] p-3">
+                          <div className="text-2xl font-bold text-[var(--text)]">{metric.value}</div>
+                          <div className="section-kicker mt-1">{metric.label}</div>
+                          {metric.note && <div className="mt-1 text-xs text-[var(--dim)]">{metric.note}</div>}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item.stack && (
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {item.stack.map((tech) => (
+                        <span key={tech} className="technical-chip px-2 py-1">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <WorkVisual item={item} />
+              </div>
             </div>
           </div>
         </div>
       ))}
+      </div>
 
-      <p className="text-center text-gray-500 text-sm mt-8">
+      <p className="mono mt-8 text-center text-xs uppercase text-[var(--dim)]">
         More on{" "}
         <a
           href="https://linkedin.com/in/divyaanshseth"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#007acc] hover:underline"
+          className="text-[var(--accent)] hover:underline"
         >
           LinkedIn
         </a>

@@ -8,17 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const titleWords = ["Hi,", "I'm", "Divyaansh", "Seth."];
 const subtitleWords = [
-  "CS",
-  "&",
-  "Math",
-  "@",
-  "UMass",
-  "·",
-  "AI",
-  "·",
+  "CS + Math",
+  "Software",
+  "AI Systems",
   "Quant",
-  "·",
-  "Full-Stack",
 ];
 
 export default function HeroSection() {
@@ -78,57 +71,92 @@ export default function HeroSection() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center bg-black px-6 text-center"
+      className="relative min-h-screen px-5 pt-32 md:px-16"
     >
-      {/* Subtle radial gradient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,122,204,0.08)_0%,_transparent_70%)] pointer-events-none" />
+      <div className="mx-auto grid min-h-[calc(100vh-8rem)] max-w-[1280px] grid-cols-1 content-center gap-12 border-b border-[var(--line)] pb-16 md:grid-cols-12">
+        <div className="md:col-span-8">
+          <p className="section-kicker mb-6">Portfolio / Engineered Systems</p>
+          <h1
+            ref={titleRef}
+            className="mb-8 text-[clamp(4rem,12vw,9rem)] font-extrabold leading-[0.92] text-[var(--text)]"
+          >
+            {titleWords.map((word, i) => (
+              <span key={i} className="hero-word block">
+                {word === "Divyaansh" || word === "Seth." ? (
+                  <span className="text-[var(--primary)]">{word}</span>
+                ) : (
+                  word
+                )}
+              </span>
+            ))}
+          </h1>
 
-      <h1
-        ref={titleRef}
-        className="text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-tight mb-6"
-      >
-        {titleWords.map((word, i) => (
-          <span key={i} className="hero-word inline-block mr-4 last:mr-0">
-            {word === "Divyaansh" || word === "Seth." ? (
-              <span className="text-[#007acc]">{word}</span>
-            ) : (
-              word
-            )}
-          </span>
-        ))}
-      </h1>
+          <p
+            ref={subtitleRef}
+            className="section-copy max-w-2xl text-[var(--muted)]"
+          >
+            <span className="hero-subtitle-word mb-4 block text-[var(--text)]">
+              Building software, intelligent systems, and occasionally things
+              that move very fast.
+            </span>
+            {subtitleWords.map((word, i) => (
+              <span key={i} className="hero-subtitle-word mr-3 inline-block">
+                {word}
+                {i < subtitleWords.length - 1 ? " /" : ""}
+              </span>
+            ))}
+          </p>
+        </div>
 
-      <p
-        ref={subtitleRef}
-        className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl"
-      >
-        {subtitleWords.map((word, i) => (
-          <span key={i} className="hero-subtitle-word inline-block mr-2">
-            {word}
-          </span>
-        ))}
-      </p>
+        <div className="flex flex-col justify-end gap-6 md:col-span-4">
+          <div className="technical-card p-5">
+            <div className="mono mb-6 text-xs uppercase text-[var(--dim)]">
+              Current Signal
+            </div>
+            <div className="space-y-4">
+              {["Distributed AI systems", "Matching engines", "Agentic automation"].map(
+                (item, index) => (
+                  <div
+                    key={item}
+                    className="flex items-center justify-between border-t border-[var(--line)] pt-3"
+                  >
+                    <span className="mono text-xs text-[var(--dim)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-sm text-[var(--text)]">{item}</span>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
 
-      <div ref={ctaRef} className="flex gap-4 flex-wrap justify-center">
-        <a
-          href="#work"
-          className="px-8 py-3 bg-[#007acc] text-white font-semibold rounded-full hover:bg-[#0090e8] transition-colors duration-200"
-        >
-          View My Work
-        </a>
-        <a
-          href="/docs/Resume Final Aug 2025.pdf"
-          download
-          className="px-8 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-colors duration-200"
-        >
-          Download Resume
-        </a>
-      </div>
+          <div ref={ctaRef} className="grid gap-3 sm:grid-cols-2 md:grid-cols-1">
+            <a href="#work" className="button-primary px-6 py-4">
+              View Work
+            </a>
+            <a
+              href="/docs/resumes/swe-ai-hybrid.pdf"
+              download
+              className="button-secondary px-6 py-4"
+            >
+              Resume
+            </a>
+          </div>
+        </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500">
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-gray-500 to-transparent animate-pulse" />
+        <div className="grid gap-3 border-t border-[var(--line)] pt-6 md:col-span-12 md:grid-cols-4">
+          {[
+            ["6.27M", "events/sec"],
+            ["0.42 µs", "p99 raw engine processing"],
+            ["13%", "pipeline runtime reduction"],
+            ["84%", "expert annotation agreement"],
+          ].map(([value, label]) => (
+            <div key={label} className="border border-[var(--line)] bg-[rgba(42,42,41,0.45)] p-4">
+              <div className="text-3xl font-bold text-[var(--text)]">{value}</div>
+              <div className="mono mt-2 text-xs uppercase text-[var(--dim)]">{label}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { resumeOptions } from "@/data/resumes";
 
 const links = [
   {
@@ -29,27 +30,31 @@ export default function ContactSection() {
     <section
       ref={ref}
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-24 text-center"
+      className="section-shell relative min-h-screen"
     >
-      {/* Subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(0,122,204,0.07)_0%,_transparent_70%)] pointer-events-none" />
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="max-w-2xl w-full"
+        className="grid w-full gap-12 md:grid-cols-12"
       >
-        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-          Let&apos;s Connect
-        </h2>
-        <p className="text-gray-400 text-lg mb-14 leading-relaxed">
-          Open to SWE &amp; ML opportunities, research collaborations, and
-          interesting conversations.
-        </p>
+        <div className="md:col-span-5">
+          <p className="section-kicker mb-4">Contact / 05</p>
+          <h2 className="section-title mb-8">Let&apos;s Connect</h2>
+          <p className="section-copy">
+            Open to SWE &amp; ML opportunities, research collaborations, and
+            interesting conversations.
+          </p>
+          <div className="mt-8 border border-[var(--line)] bg-[rgba(42,42,41,0.45)] p-4">
+            <div className="section-kicker">Resume Router</div>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+              Pick the version that matches what you want to evaluate.
+            </p>
+          </div>
+        </div>
 
-        {/* Contact links */}
-        <div className="flex flex-col gap-4 mb-12">
+        <div className="md:col-span-7">
+        <div className="mb-10 border-b border-[var(--line)]">
           {links.map((link, i) => (
             <motion.a
               key={link.label}
@@ -59,36 +64,54 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-              className="flex items-center justify-between px-6 py-4 rounded-2xl border border-white/10 bg-white/5 hover:border-[#007acc]/50 hover:bg-white/8 transition-all duration-200 group"
+              className="group grid gap-2 border-t border-[var(--line)] px-0 py-6 transition-colors duration-200 hover:bg-[rgba(42,42,41,0.45)] md:grid-cols-[8rem_1fr]"
             >
-              <span className="text-sm text-gray-400 group-hover:text-[#007acc] transition-colors font-medium">
-                {link.label}
+              <span className="mono text-xs uppercase text-[var(--dim)] transition-colors group-hover:text-[var(--accent)]">
+                {String(i + 1).padStart(2, "0")} / {link.label}
               </span>
-              <span className="text-white text-sm">{link.display}</span>
+              <span className="break-all text-sm text-[var(--text)] md:text-right">
+                {link.display}
+              </span>
             </motion.a>
           ))}
         </div>
 
-        {/* Resume CTA */}
-        <motion.a
-          href="/docs/Resume Final Aug 2025.pdf"
-          download
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="inline-block px-10 py-4 bg-[#007acc] text-white font-semibold rounded-full hover:bg-[#0090e8] active:scale-95 transition-all duration-200 text-lg"
-        >
-          Download Resume
-        </motion.a>
+        <div className="grid gap-3">
+          {resumeOptions.map((resume, i) => (
+            <motion.a
+              key={resume.id}
+              href={resume.href}
+              download
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.55 + i * 0.08 }}
+              className="group border border-[var(--line)] p-4 transition-colors hover:border-[var(--accent)] hover:bg-[rgba(42,42,41,0.45)]"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <div className="font-semibold text-[var(--text)]">{resume.label}</div>
+                  <div className="mono mt-1 text-xs uppercase text-[var(--accent)]">{resume.focus}</div>
+                </div>
+                <span className="mono text-xs uppercase text-[var(--dim)] group-hover:text-[var(--accent)]">
+                  Download →
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                {resume.description}
+              </p>
+            </motion.a>
+          ))}
+        </div>
+        </div>
       </motion.div>
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, delay: 1 }}
-        className="absolute bottom-8 text-gray-600 text-xs"
+        className="mono absolute bottom-8 left-5 text-xs uppercase text-[var(--dim)] md:left-16"
       >
-        Divyaansh Seth · Amherst, MA
+        Divyaansh Seth · Amherst / New Delhi
       </motion.p>
     </section>
   );

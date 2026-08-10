@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const stats = [
   { label: "Education", value: "UMass Amherst", sub: "BS CS & Math · Business Minor" },
-  { label: "Experience", value: "NIC · Deloitte · GT", sub: "AI · Analytics · Product" },
-  { label: "Projects", value: "4+", sub: "RAG · Quant · Finance" },
+  { label: "Experience", value: "Siemens · Deloitte · NIC", sub: "Software · AI Systems · Retrieval" },
+  { label: "Projects", value: "Systems + AI", sub: "Matching engines · AutoApply · Backtesting" },
 ];
 
 export default function AboutSection() {
@@ -18,79 +18,86 @@ export default function AboutSection() {
     <section
       ref={ref}
       id="about"
-      className="min-h-screen flex items-center px-6 py-24 max-w-6xl mx-auto"
+      className="section-shell min-h-screen"
     >
-      <div className="grid md:grid-cols-2 gap-16 items-center w-full">
-        {/* Photo */}
+      <div className="grid w-full gap-12 md:grid-cols-12">
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex justify-center"
+          className="md:col-span-5"
         >
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-full bg-[#007acc]/20 blur-2xl" />
+          <div className="technical-card p-3">
             <Image
               src="/images/profile2.jpg"
               alt="Divyaansh Seth"
-              width={280}
-              height={280}
-              className="relative rounded-full object-cover border-4 border-[#007acc]/30 shadow-2xl"
+              width={640}
+              height={760}
+              className="aspect-[4/5] w-full object-cover grayscale"
               priority
             />
+            <div className="mt-3 grid grid-cols-2 border-t border-[var(--line)] pt-3">
+              <span className="mono text-xs uppercase text-[var(--dim)]">
+                Based
+              </span>
+              <span className="text-right text-sm text-[var(--text)]">
+                Amherst / New Delhi
+              </span>
+            </div>
           </div>
         </motion.div>
 
-        {/* Bio */}
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          className="md:col-span-7"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            About Me
-          </h2>
-          <p className="text-gray-300 text-lg leading-relaxed mb-8">
-            I&apos;m <strong className="text-white">Divyaansh Seth</strong>, an
-            aspiring technologist with a deep interest in AI, data science, and
-            full-stack systems. I&apos;m currently a junior at UMass Amherst,
-            double majoring in Computer Science and Mathematics, with a minor in
-            Business. I enjoy building impactful software projects, exploring
-            algorithmic finance, and contributing to research at the
-            intersection of AI and public policy.
+          <p className="section-kicker mb-4">Profile / 01</p>
+          <h2 className="section-title mb-8">About Me</h2>
+          <p className="section-copy mb-10">
+            I&apos;m <strong className="text-[var(--text)]">Divyaansh Seth</strong>,
+            a Computer Science and Mathematics student at UMass Amherst
+            interested in software that sits close to difficult technical
+            problems: distributed AI systems, agentic tooling, and
+            performance-sensitive systems. I like understanding why systems
+            behave the way they do, then making them better.
           </p>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10"
+                className="grid grid-cols-[3rem_1fr] border-t border-[var(--line)] py-5 last:border-b md:grid-cols-[4rem_1fr]"
               >
+                <div className="mono text-xs text-[var(--dim)]">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
                 <div>
-                  <div className="text-xs text-[#007acc] uppercase tracking-widest font-medium mb-1">
+                  <div className="section-kicker mb-2">
                     {s.label}
                   </div>
-                  <div className="text-white font-semibold">{s.value}</div>
-                  <div className="text-gray-400 text-sm">{s.sub}</div>
+                  <div className="text-xl font-semibold text-[var(--text)]">
+                    {s.value}
+                  </div>
+                  <div className="mt-1 text-sm text-[var(--muted)]">{s.sub}</div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Social links */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="flex gap-4 mt-8"
+            className="mt-8 flex flex-wrap gap-3"
           >
             <a
               href="mailto:divyaanshset@umass.edu"
-              className="px-5 py-2 rounded-full border border-white/20 text-sm text-gray-300 hover:text-white hover:border-white/50 transition-colors"
+              className="button-secondary px-5 py-3"
             >
               Email
             </a>
@@ -98,7 +105,7 @@ export default function AboutSection() {
               href="https://github.com/DivSeth"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-full border border-white/20 text-sm text-gray-300 hover:text-white hover:border-white/50 transition-colors"
+              className="button-secondary px-5 py-3"
             >
               GitHub
             </a>
@@ -106,7 +113,7 @@ export default function AboutSection() {
               href="https://linkedin.com/in/divyaanshseth"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-full border border-white/20 text-sm text-gray-300 hover:text-white hover:border-white/50 transition-colors"
+              className="button-secondary px-5 py-3"
             >
               LinkedIn
             </a>

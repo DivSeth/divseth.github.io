@@ -24,6 +24,23 @@
 .DS_Store
 *.pem
 
+# local design/content inputs
+/Autoapply photos/
+/NIC images/
+/Resumes/
+/divyaansh-seth---precision-engineering-portfolio/
+/output/
+/prompt.md
+/*.docx
+/CONTENT_AUDIT.md
+/CONTENT_QUESTIONS.md
+/ASSET_REQUESTS.md
+/MOTION_PLAN.md
+
+# raw resume variants copied locally but not exposed by the site
+/public/docs/resumes/google-swe.pdf
+/public/docs/resumes/hrt-systems-trading.pdf
+
 # debug
 npm-debug.log*
 yarn-debug.log*

@@ -51,18 +51,22 @@ export default function RoadmapSection() {
     <section
       ref={sectionRef}
       id="roadmap"
-      className="min-h-screen px-6 py-24"
+      className="section-shell min-h-screen"
     >
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-          Learning Roadmap
-        </h2>
-        <p className="text-gray-400 mb-16 text-center">
-          A visual journey of my growth as a software engineer.
-        </p>
+      <div>
+        <div className="mb-16 grid gap-6 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <p className="section-kicker mb-4">Working Notes / 04</p>
+            <h2 className="section-title">How I Think</h2>
+          </div>
+          <p className="section-copy md:col-span-5 md:pt-12">
+            A few habits I keep coming back to while building software: keep
+            the system visible, measure the real bottleneck, and make the next
+            version easier to change.
+          </p>
+        </div>
 
         <div className="relative">
-          {/* Animated center line */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px overflow-visible hidden md:block">
             <svg
               className="absolute inset-0 w-px h-full"
@@ -74,7 +78,7 @@ export default function RoadmapSection() {
                 y1="0"
                 x2="0.5"
                 y2="100%"
-                stroke="#007acc"
+                stroke="var(--accent)"
                 strokeWidth="2"
                 strokeDasharray="600"
                 strokeDashoffset="600"
@@ -82,8 +86,7 @@ export default function RoadmapSection() {
             </svg>
           </div>
 
-          {/* Mobile: simple left line */}
-          <div className="absolute left-4 top-0 bottom-0 w-px bg-[#007acc]/30 md:hidden" />
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-[var(--line)] md:hidden" />
 
           <div className="space-y-8">
             {roadmap.map((item, i) => {
@@ -101,20 +104,21 @@ export default function RoadmapSection() {
                       isLeft ? "md:pr-12 md:text-right" : "md:pl-12"
                     }`}
                   >
-                    <div className="inline-block p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#007acc]/40 transition-colors duration-200 text-left">
-                      <h3 className="text-lg font-semibold text-white mb-1">
+                    <div className="technical-card inline-block max-w-md p-5 text-left transition-colors duration-200 hover:border-[var(--accent)]">
+                      <div className="mono mb-4 text-xs text-[var(--dim)]">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      <h3 className="mb-2 text-lg font-semibold text-[var(--text)]">
                         {item.title}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
+                      <p className="text-sm leading-relaxed text-[var(--muted)]">
                         {item.description}
                       </p>
                     </div>
                   </div>
 
-                  {/* Center dot */}
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-5 w-4 h-4 rounded-full bg-[#007acc] border-4 border-black z-10" />
+                  <div className="absolute left-4 top-5 z-10 h-4 w-4 -translate-x-1/2 border-2 border-[var(--accent)] bg-[var(--background)] md:left-1/2" />
 
-                  {/* Spacer for opposite side on desktop */}
                   <div className="hidden md:block flex-1" />
                 </div>
               );
@@ -122,13 +126,13 @@ export default function RoadmapSection() {
           </div>
         </div>
 
-        <p className="text-center text-gray-500 text-sm mt-16">
-          Follow my journey on{" "}
+        <p className="mono mt-16 text-center text-xs uppercase text-[var(--dim)]">
+          Follow the work on{" "}
           <a
             href="https://github.com/DivSeth"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#007acc] hover:underline"
+            className="text-[var(--accent)] hover:underline"
           >
             GitHub
           </a>{" "}
@@ -137,7 +141,7 @@ export default function RoadmapSection() {
             href="https://linkedin.com/in/divyaanshseth"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#007acc] hover:underline"
+            className="text-[var(--accent)] hover:underline"
           >
             LinkedIn
           </a>
